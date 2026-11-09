@@ -2,6 +2,6 @@
 window.MARKET_CONFIG = {
   pixKey: '02102405206',
   feeBRL: 2,
-  supabaseUrl: '', // URL do projeto Supabase
-  supabaseAnonKey: '' // chave publicável (anon), não service_role
+  supabaseUrl: '', // https://xfruywedgsliokbbxmeh.supabase.co
+  supabaseAnonKey: '' // sb_publishable_PlWWDEJTZuolHV3molTIGw_jRkc6loz
 };
