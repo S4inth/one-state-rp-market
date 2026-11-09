@@ -25,3 +25,14 @@ A chave PIX é apenas para pagamento manual. **Não existe cobrança automática
 - Antes de divulgação em escala, implemente CAPTCHA, rate limiting, política de privacidade, moderação e mecanismos antifraude/spam.
 - Qualquer pessoa com acesso ao site pode enviar anúncios pendentes; não há login de usuários.
 - Não é afiliado ao One State RP. Respeite os termos do jogo e não permita itens, armas ou violência do mundo real.
+
+## Painel administrativo protegido
+1. Execute `admin.sql` no SQL Editor.
+2. Em Authentication > Users, crie seu usuário administrador com e-mail e senha forte. Desative cadastro público caso não seja necessário. Confirme o e-mail, se exigido.
+3. Copie o UUID desse usuário na tela Authentication > Users.
+4. No SQL Editor execute: `insert into public.market_admins(user_id) values ('COLE-O-UUID-AQUI');` (substitua pelo UUID real, mantendo aspas).
+5. Envie `admin.html` para a raiz do mesmo repositório GitHub. Ele utiliza o `config.js` já configurado.
+6. Abra `https://SEU-USUARIO.github.io/one-state-rp-market/admin.html`, entre com seu e-mail e senha e revise os anúncios pendentes.
+7. Confirme o PIX diretamente no banco antes de clicar em Aprovar. Não confie apenas em comprovantes.
+
+A URL do painel não é secreta. A segurança depende da autenticação Supabase e da autorização no banco por UUID. Nunca coloque senhas ou service_role no HTML/JS. O painel não implementa conciliação PIX, CAPTCHA, rate limiting, logs de auditoria ou associação comprovada entre PIX e anúncio. Antes de operar com dinheiro real em escala, implemente esses controles e uma identificação única por cobrança.
